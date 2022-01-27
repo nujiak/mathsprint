@@ -2,7 +2,6 @@
 
 html {
   box-sizing: border-box;
-  font-size: 16px;
 }
 
 *,
@@ -50,7 +49,6 @@ video {
 
 .question--title {
   flex-basis: 100%;
-  width: 35rem;
   padding: 2rem 4rem;
   font-size: 1em;
   margin: 0% 4rem;
@@ -77,9 +75,10 @@ button {
   border: 0.2rem solid black;
   border-radius: 1rem;
   font-size: x-large;
-  min-width: 8rem;
+  min-width: 6rem;
   height: 4rem;
   filter: drop-shadow(0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.3));
+  padding: 0.5rem 1rem;
 }
 
 button:hover {
@@ -128,7 +127,7 @@ button:active {
 #submit:active {
   transition: 0.1s;
   box-shadow: none;
-  filter: drop-shadow(0.2rem 0.2rem 0.1rem rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0.2rem 0.2rem 0.1rem #c56000);
 }
 
 .submit--button--completed:hover {
