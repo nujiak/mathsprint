@@ -91,9 +91,9 @@ function verifyCompletion() {
       isCompleted = false
       break
     }
-    if (isCompleted) {
-      document.getElementById("submit").classList.add("submit--button--completed")
-    }
+  }
+  if (isCompleted) {
+    document.getElementById("submit").classList.add("submit--button--completed")
   }
 }
 
