@@ -118,6 +118,11 @@ button:active {
   transform: translate(0, 5%);
 }
 
+#submit {
+  width: 100%;
+  margin: 0% 4rem;
+}
+
 #submit:hover {
   transition: 0.3s;
   border: 0.2rem solid red;
