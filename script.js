@@ -4,6 +4,7 @@ const operators = ["-", "+", "*"]
 const questionsContainer = document.getElementById("questions")
 const questions = []
 const selection = []
+const results = []
 
 class Question {
   constructor(leftOperand, operator, rightOperand) {
@@ -20,7 +21,6 @@ function generateOptions(correctAnswer) {
   const options = [correctAnswer]
   while (options.length < OPTIONS_COUNT) {
     const newOption = correctAnswer + getRandomNumber(-10, 10)
-    console.log(newOption)
     if (options.includes(newOption)) {
       continue
     }
@@ -58,7 +58,7 @@ function attachQuestion(question, questionNumber) {
   optionsDiv.setAttribute("class", "question--options")
 
   for (let i = 0; i < OPTIONS_COUNT; i++) {
-    const id = `question${questionNumber}_option${i}`
+    const id = getOptionId(questionNumber, i)
     const button = document.createElement("button")
     button.setAttribute("id", id)
     button.setAttribute("type", "button")
@@ -73,7 +73,7 @@ function attachQuestion(question, questionNumber) {
 function onSelection(questionNumber, optionNumber) {
   selection[questionNumber] = optionNumber
   for (let i = 0; i < OPTIONS_COUNT; i++) {
-    const id = `question${questionNumber}_option${i}`
+    const id = getOptionId(questionNumber, i)
     const button = document.getElementById(id)
     i == optionNumber
       ? button.classList.add("question--button--selected")
@@ -84,7 +84,6 @@ function onSelection(questionNumber, optionNumber) {
 }
 
 function verifyCompletion() {
-  console.log(selection)
   let isCompleted = true
   for (let i = 0; i < QUESTIONS_COUNT; i++) {
     if (isNaN(selection[i])) {
@@ -95,6 +94,33 @@ function verifyCompletion() {
   if (isCompleted) {
     document.getElementById("submit").classList.add("submit--button--completed")
   }
+
+  return isCompleted
+}
+
+function checkAnswers() {
+  const isCompleted = verifyCompletion()
+  if (!isCompleted) {
+    return
+  }
+
+  let score = 0
+  for (let i = 0; i < QUESTIONS_COUNT; i++) {
+    const question = questions[i]
+    const selectedOption = selection[i]
+    const selectedAnswer = question.options[selectedOption]
+    if (selectedAnswer == question.answer) {
+      score++
+      results.push(true)
+    } else {
+      results.push(false)
+    }
+  }
+  alert(`${score}`)
+}
+
+function getOptionId(questionNumber, optionNumber) {
+  return `question${questionNumber}_option${optionNumber}`
 }
 
 for (let i = 0; i < QUESTIONS_COUNT; i++) {
