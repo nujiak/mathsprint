@@ -23,6 +23,7 @@ body {
   color: black;
   opacity: 0.87;
   background-color: white;
+  -webkit-tap-highlight-color: transparent;
 }
 
 h1 {
