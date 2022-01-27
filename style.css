@@ -74,7 +74,7 @@ video {
 button {
   transition: 0.1s;
   font-family: "Source Code Pro";
-  background-color: transparent;
+  background-color: #ffc046;
   border: 0.2rem solid black;
   border-radius: 1rem;
   font-size: x-large;
@@ -97,7 +97,6 @@ button:active {
 
 .question--button {
   line-height: 1rem;
-  background-color: #ffc046;
   margin: 0.5rem 0.5rem;
   padding: 0;
   color: black;
@@ -123,8 +122,8 @@ button:active {
 
 #submit:hover {
   transition: 0.3s;
-  color: pink;
-  background-color: red;
+  border: 0.2rem solid red;
+  color: red;
 }
 
 #submit:active {
@@ -134,8 +133,8 @@ button:active {
 }
 
 .submit--button--completed:hover {
-  color: lightgreen !important;
-  background-color: green !important;
+  color: green !important;
+  border: 0.2rem solid green !important;
   filter: drop-shadow(0.4rem 0.4rem 0.2rem #c56000);
 }
 
