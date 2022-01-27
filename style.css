@@ -23,7 +23,7 @@ body {
   font-size: xx-large;
   color: black;
   opacity: 0.87;
-  background-color: #ff8f00;
+  background-color: white;
 }
 
 h1 {
@@ -57,7 +57,6 @@ video {
   margin-bottom: 0;
   border-radius: 0.3rem;
   border: 0.2rem solid black;
-  background-color: #ffc046;
   text-align: center;
 }
 
@@ -74,19 +73,19 @@ video {
 button {
   transition: 0.1s;
   font-family: "Source Code Pro";
-  background-color: #ffc046;
+  background-color: white;
   border: 0.2rem solid black;
   border-radius: 1rem;
   font-size: x-large;
   min-width: 8rem;
   height: 4rem;
-  filter: drop-shadow(0.1rem 0.1rem 0.1rem #c56000);
+  filter: drop-shadow(0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.3));
 }
 
 button:hover {
   transition-duration: 0.1s;
   transform: translate(0, -5%);
-  filter: drop-shadow(0.4rem 0.4rem 0.2rem #c56000);
+  filter: drop-shadow(0.4rem 0.4rem 0.2rem rgba(0, 0, 0, 0.3));
 }
 
 button:active {
@@ -104,10 +103,10 @@ button:active {
 
 .question--button--selected {
   transition-duration: 0.3s;
-  background-color: #c56000;
   font-weight: bold;
   filter: none;
   box-shadow: inset 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .question--button--selected:hover {
@@ -129,13 +128,13 @@ button:active {
 #submit:active {
   transition: 0.1s;
   box-shadow: none;
-  filter: drop-shadow(0.2rem 0.2rem 0.1rem #c56000);
+  filter: drop-shadow(0.2rem 0.2rem 0.1rem rgba(0, 0, 0, 0.3));
 }
 
 .submit--button--completed:hover {
   color: green !important;
   border: 0.2rem solid green !important;
-  filter: drop-shadow(0.4rem 0.4rem 0.2rem #c56000);
+  filter: drop-shadow(0.4rem 0.4rem 0.2rem rgba(0, 0, 0, 0.3));
 }
 
 .submit--button--completed:active {
