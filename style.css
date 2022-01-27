@@ -79,6 +79,7 @@ button {
   height: 4rem;
   filter: drop-shadow(0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.3));
   padding: 0.5rem 1rem;
+  color: black;
 }
 
 button:hover {
@@ -97,7 +98,6 @@ button:active {
   line-height: 1rem;
   margin: 0.5rem 0.5rem;
   padding: 0;
-  color: black;
 }
 
 .question--button--selected {
@@ -121,24 +121,31 @@ button:active {
 #submit {
   width: 100%;
   margin: 0% 4rem;
+  border: 0.2rem solid red;
+  color: red;
+  filter: none;
 }
 
 #submit:hover {
   transition: 0.3s;
-  border: 0.2rem solid red;
-  color: red;
+  transform: translate(0, -2%);
 }
 
 #submit:active {
   transition: 0.1s;
   box-shadow: none;
-  filter: drop-shadow(0.2rem 0.2rem 0.1rem #c56000);
+  transform: translate(0, -1%);
+}
+
+.submit--button--completed {
+  transition: 0.3s;
+  color: green !important;
+  border: 0.2rem solid green !important;
+  filter: drop-shadow(0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.3)) !important;
 }
 
 .submit--button--completed:hover {
-  color: green !important;
-  border: 0.2rem solid green !important;
-  filter: drop-shadow(0.4rem 0.4rem 0.2rem rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0.4rem 0.4rem 0.2rem rgba(0, 0, 0, 0.3)) !important;
 }
 
 .submit--button--completed:active {
