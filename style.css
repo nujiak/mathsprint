@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;1,600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;1,600&display=swap");
 
 html {
   box-sizing: border-box;
   font-size: 16px;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -16,7 +18,7 @@ body {
   margin: 1rem;
   font-family: sans-serif;
   line-height: 1.5;
-  font-family: 'Source Code Pro';
+  font-family: "Source Code Pro";
   font-weight: normal;
   font-size: xx-large;
   color: black;
@@ -33,7 +35,8 @@ h1 {
   text-align: center;
 }
 
-img, video {
+img,
+video {
   height: auto;
   max-width: 100%;
 }
@@ -70,7 +73,7 @@ img, video {
 
 button {
   transition: 0.1s;
-  font-family: 'Source Code Pro';
+  font-family: "Source Code Pro";
   background-color: transparent;
   border: 0.2rem solid black;
   border-radius: 1rem;
@@ -78,6 +81,18 @@ button {
   min-width: 8rem;
   height: 4rem;
   filter: drop-shadow(0.1rem 0.1rem 0.1rem #c56000);
+}
+
+button:hover {
+  transition-duration: 0.1s;
+  transform: translate(0, -5%);
+  filter: drop-shadow(0.4rem 0.4rem 0.2rem #c56000);
+}
+
+button:active {
+  transform: translate(0, 5%);
+  filter: none;
+  box-shadow: inset 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.3);
 }
 
 .question--button {
@@ -88,24 +103,22 @@ button {
   color: black;
 }
 
-.question--button:hover {
-  transition-duration: 0.1s;
-  transform: scale(105%);
-  filter: drop-shadow(0.4rem 0.4rem 0.2rem #c56000);
-}
-
 .question--button--selected {
   transition-duration: 0.3s;
   background-color: #c56000;
-  border: 0.3rem solid black;
   font-weight: bold;
-  transform: scale(98%);
   filter: none;
+  box-shadow: inset 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.3);
 }
 
 .question--button--selected:hover {
-  transform: scale(99%);
+  transform: translate(0, 3%);
+  box-shadow: inset 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.3);
   filter: none;
+}
+
+.question--button--selected:active {
+  transform: translate(0, 5%);
 }
 
 #submit:hover {
@@ -114,9 +127,19 @@ button {
   background-color: red;
 }
 
+#submit:active {
+  transition: 0.1s;
+  box-shadow: none;
+  filter: drop-shadow(0.2rem 0.2rem 0.1rem #c56000);
+}
+
 .submit--button--completed:hover {
   color: lightgreen !important;
   background-color: green !important;
-  transform: scale(105%);
   filter: drop-shadow(0.4rem 0.4rem 0.2rem #c56000);
+}
+
+.submit--button--completed:active {
+  box-shadow: inset 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.3) !important;
+  filter: none !important;
 }
