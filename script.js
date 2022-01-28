@@ -1,4 +1,4 @@
-const QUESTIONS_COUNT = 3;
+const QUESTIONS_COUNT = 10;
 const OPTIONS_COUNT = 4;
 const operators = ["-", "+", "*"];
 const questionsContainer = document.getElementById("questions");
@@ -50,9 +50,14 @@ function generateQuestion() {
 
 function attachQuestion(question, questionNumber) {
   const title = document.createElement("h2");
+
+  const questionContainer = document.createElement("div")
+  questionContainer.classList.add("question")
+  questionsContainer.appendChild(questionContainer);
+
   title.appendChild(document.createTextNode(question.string));
   title.setAttribute("class", "question--title");
-  questionsContainer.appendChild(title);
+  questionContainer.appendChild(title)
 
   const optionsDiv = document.createElement("div");
   optionsDiv.setAttribute("class", "question--options");
@@ -69,7 +74,7 @@ function attachQuestion(question, questionNumber) {
     });
     optionsDiv.appendChild(button);
   }
-  questionsContainer.appendChild(optionsDiv);
+  questionContainer.appendChild(optionsDiv);
 }
 
 function onSelection(questionNumber, optionNumber) {
