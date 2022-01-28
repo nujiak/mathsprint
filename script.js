@@ -118,6 +118,25 @@ function checkAnswers() {
 }
 
 function showScore() {
+  for (let qn = 0; qn < QUESTIONS_COUNT; qn++) {
+    for (let opt = 0; opt < OPTIONS_COUNT; opt++) {
+      const button = document.getElementById(getOptionId(qn, opt))
+      button.disabled = true
+
+      // Check if this option is the correct answer
+      if (questions[qn].options[opt] == questions[qn].answer) {
+        button.classList.add("question--button--correct")
+        continue
+      }
+
+      // Check if this option was selected (would be wrong)
+      if (selection[qn] == opt) {
+        button.classList.add("question--button--wrong")
+      }
+    }
+  }
+
+
   score = results.reduce((sum, isCorrect) => (isCorrect ? sum + 1 : sum), 0);
   const scoreDisplay = document.getElementById("score");
   const maxScoreDisplay = document.getElementById("maxScore");
