@@ -13,17 +13,16 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-      <h1>Finish this quiz</h1>
-      <h3 id="timer"></h3>
-      <div id="questions"></div>
-      <button id="submit" type="submit" onclick="checkAnswers()">Submit</button>
 
-      <div id="scoresheetContainer" style="display: none;">
-        <div id="scoresheet">
-          <h2 id="score" class="score" style="display: inline-block;"></h2><h3 id="maxScore" class="score" style="display: inline-block;"></h3>
-          <h3 id="timeTaken"></h3>
+      <div id="scoresheetContainer" class="hasSubmittedState">
+        <div id="scoresheet" class="hasSubmittedState">
+          <h3 id="score" class="score" style="display: inline-block;"></h3><h4 id="maxScore" class="score" style="display: inline-block;"></h4>
         </div>
+        <h4 id="timer" class="hasSubmittedState"></h3>
       </div>
+
+      <div id="questions"></div>
+      <button id="submit" type="submit" class="hasSubmittedState" onclick="checkAnswers()">Submit</button>
     </div>
   </body>
 </html>

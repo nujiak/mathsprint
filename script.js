@@ -60,18 +60,18 @@ function attachQuestion(question, questionNumber) {
   questionsContainer.appendChild(questionContainer);
 
   title.appendChild(document.createTextNode(question.string));
-  title.setAttribute("class", "question--title");
+  title.setAttribute("class", "question--title hasSubmittedState");
   questionContainer.appendChild(title)
 
   const optionsDiv = document.createElement("div");
-  optionsDiv.setAttribute("class", "question--options");
+  optionsDiv.setAttribute("class", "question--options hasSubmittedState");
 
   for (let i = 0; i < OPTIONS_COUNT; i++) {
     const id = getOptionId(questionNumber, i);
     const button = document.createElement("button");
     button.setAttribute("id", id);
     button.setAttribute("type", "button");
-    button.setAttribute("class", `question--button question--button--${i}`);
+    button.setAttribute("class", `question--button question--button--${i} hasSubmittedState`);
     button.appendChild(document.createTextNode(question.options[i]));
     button.addEventListener("click", () => {
       onSelection(questionNumber, i);
@@ -152,15 +152,14 @@ function showScore() {
   const scoreDisplay = document.getElementById("score");
   const maxScoreDisplay = document.getElementById("maxScore");
   const scoreSheet = document.getElementById("scoresheet");
-  const timeTakenDisplay = document.getElementById("timeTaken")
 
   scoreDisplay.innerText = score;
   maxScoreDisplay.innerText = `/${QUESTIONS_COUNT}`;
-  timerDisplay.style.position = "static"
+  timerDisplay.style.position = "static";
 
-  timeTakenDisplay.innerText = formatTime(duration)
-
-  document.getElementById("scoresheetContainer").style.display = "block";
+  for (element of document.getElementsByClassName("hasSubmittedState")) {
+    element.classList.add("submitted")
+  }
 
   scoreSheet.scrollIntoView({
     behavior: "smooth",
