@@ -149,6 +149,7 @@ button:disabled {
   transform: translate(0, 3%);
   box-shadow: inset 0 0.3rem 0.2rem rgba(0, 0, 0, 0.3);
   filter: none;
+  filter: drop-shadow(0 0 0.3rem rgba(166, 251, 20, 0.5));
 }
 
 .question--button--selected:active {
@@ -193,7 +194,7 @@ button:disabled {
 }
 
 @keyframes glow {
-  from { box-shadow: 0 0 4rem -1rem #A6FA14; }
+  from { box-shadow: 0 0 3rem -0.5rem #A6FA14; }
   to { box-shadow: 0 0 0 #A6FA14; }
 }
 
@@ -269,7 +270,7 @@ button:disabled {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   margin-top: -0.5rem;
-  filter: drop-shadow(0.1rem 0.1rem 0.1rem rgba(167, 90, 255, 0.2));
+  filter: drop-shadow(0.3rem 0.3rem 0.3rem rgba(17, 0, 95, 0.2));
 }
 
 #timer.submitted {
