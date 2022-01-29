@@ -49,7 +49,14 @@ video {
 }
 
 .question {
-  margin: 0% 2rem;
+  margin: 1rem 2rem;
+}
+
+.question.submitted {
+  border-radius: 0.5rem;
+  filter: drop-shadow(0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.3));
+  background-color: white;
+  margin: 1rem 0.5rem 0 0.5rem;
 }
 
 .question--title {
@@ -66,7 +73,8 @@ video {
 .question--title.submitted {
   transition: 0.1s;
   padding: 0;
-  font-size: 50%;
+  font-size: 80%;
+  margin-top: 0.5rem;
   border: none;
 }
 

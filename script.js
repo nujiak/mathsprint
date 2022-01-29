@@ -56,7 +56,7 @@ function attachQuestion(question, questionNumber) {
   const title = document.createElement("h2");
 
   const questionContainer = document.createElement("div")
-  questionContainer.classList.add("question")
+  questionContainer.classList.add("question", "hasSubmittedState")
   questionsContainer.appendChild(questionContainer);
 
   title.appendChild(document.createTextNode(question.string));
