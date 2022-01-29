@@ -191,7 +191,18 @@ button:disabled {
   text-align: center;
 }
 
-.score {
+.score, #timeTaken {
   padding: 0;
   margin: 0;
+}
+
+#timer {
+  transition-duration: 0.3s;
+  position: sticky;
+  top: -0.5rem;
+  background-color: white;
+  z-index: 1;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 0.5rem;
+  filter: drop-shadow(0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.3));
 }

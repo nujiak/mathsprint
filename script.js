@@ -2,9 +2,13 @@ const QUESTIONS_COUNT = 10;
 const OPTIONS_COUNT = 4;
 const operators = ["-", "+", "*"];
 const questionsContainer = document.getElementById("questions");
+const timerDisplay =   document.getElementById("timer")
 const questions = [];
 const selection = [];
 const results = [];
+var startTime;
+var timerIntervalId;
+var duration = 0
 
 class Question {
   constructor(leftOperand, operator, rightOperand) {
@@ -113,6 +117,9 @@ function checkAnswers() {
     return;
   }
 
+  clearInterval(timerIntervalId)
+  updateTimer()
+
   for (let i = 0; i < QUESTIONS_COUNT; i++) {
     const question = questions[i];
     const selectedOption = selection[i];
@@ -141,14 +148,17 @@ function showScore() {
     }
   }
 
-
   score = results.reduce((sum, isCorrect) => (isCorrect ? sum + 1 : sum), 0);
   const scoreDisplay = document.getElementById("score");
   const maxScoreDisplay = document.getElementById("maxScore");
   const scoreSheet = document.getElementById("scoresheet");
+  const timeTakenDisplay = document.getElementById("timeTaken")
 
   scoreDisplay.innerText = score;
   maxScoreDisplay.innerText = `/${QUESTIONS_COUNT}`;
+  timerDisplay.style.position = "static"
+
+  timeTakenDisplay.innerText = formatTime(duration)
 
   document.getElementById("scoresheetContainer").style.display = "block";
 
@@ -163,8 +173,39 @@ function getOptionId(questionNumber, optionNumber) {
   return `question${questionNumber}_option${optionNumber}`;
 }
 
-for (let i = 0; i < QUESTIONS_COUNT; i++) {
-  const newQuestion = generateQuestion();
-  questions.push(newQuestion);
-  attachQuestion(newQuestion, i);
+function updateTimer() {
+  const currentTime = Date.now()
+  duration = currentTime - startTime
+
+  timerDisplay.innerText = formatTime(duration)
 }
+
+function formatTime(timeInMilliseconds) {
+  const time = splitTime(timeInMilliseconds)
+  return `${time.minutes.toString().padStart(2, "0")}:${time.seconds.toString().padStart(2, "0")}.${time.milliseconds.toString().padEnd(3,"0")}`
+}
+
+function splitTime(timeInMilliseconds) {
+  const minutes = Math.floor(timeInMilliseconds / (60_000))
+  const seconds = Math.floor((timeInMilliseconds % 60_000) / (1_000))
+  const milliseconds = timeInMilliseconds % 1_000
+
+  return {
+    minutes: minutes,
+    seconds: seconds,
+    milliseconds: milliseconds,
+  }
+}
+
+function init() {
+  for (let i = 0; i < QUESTIONS_COUNT; i++) {
+    const newQuestion = generateQuestion();
+    questions.push(newQuestion);
+    attachQuestion(newQuestion, i);
+  }
+
+  startTime = Date.now()
+  timerIntervalId = setInterval(updateTimer, 1000/60);
+}
+
+init()
