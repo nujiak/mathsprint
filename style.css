@@ -20,9 +20,9 @@ body {
   font-family: "Ubuntu";
   font-weight: 400;
   font-size: xx-large;
-  color: black;
+  color: #A75AFF;
   opacity: 0.87;
-  background-color: white;
+  background: #12005e;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -55,7 +55,7 @@ video {
 .question.submitted {
   border-radius: 0.5rem;
   filter: drop-shadow(0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.3));
-  background-color: white;
+  background-color: #4a148c;
   margin: 1rem 0.5rem 0 0.5rem;
 }
 
@@ -65,7 +65,7 @@ video {
   font-size: 1em;
   margin-bottom: 0;
   border-radius: 0.3rem;
-  border: 0.2rem solid black;
+  border: 0.2rem solid #A75AFF;
   font-weight: 500;
   text-align: center;
 }
@@ -95,22 +95,22 @@ button {
   transition: 0.1s;
   font-family: "Ubuntu";
   font-weight: normal;
-  background-color: white;
-  border: 0.2rem solid black;
+  background-color: #A75AFF;
+  border: none;
   border-radius: 1rem;
   font-size: x-large;
   min-width: 6rem;
   height: 4rem;
   filter: drop-shadow(0 0.1rem 0.1rem rgba(0, 0, 0, 0.3));
   padding: 0.5rem 1rem;
-  color: black;
+  color: #12005e;
   box-shadow: inset 0 -0.1rem 0.1rem rgba(0, 0, 0, 0.4);
 }
 
 button:hover {
   transition-duration: 0.1s;
   transform: translate(0, -3%);
-  filter: drop-shadow(0 0.21rem 0.1rem rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 0.1rem 0.3rem rgba(167, 90, 255, 0.5));
 }
 
 button:enabled:active {
@@ -120,7 +120,7 @@ button:enabled:active {
 }
 
 button:disabled {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: #7c43bd;
   filter: none;
   color: rgba(0, 0, 0, 0.5);
   padding: 0;
@@ -142,7 +142,7 @@ button:disabled {
   font-weight: 500;
   filter: none;
   box-shadow: inset 0 0.2rem 0.1rem rgba(0, 0, 0, 0.3);
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #A6FA14;
 }
 
 .question--button--selected:hover {
@@ -156,22 +156,23 @@ button:disabled {
 }
 
 .question--button--correct {
-  color: green !important;
-  border: 0.2rem solid green !important;
+  color: lightgreen !important;
+  border: 0.2rem solid lightgreen !important;
 }
 
 .question--button--wrong {
-  color: red !important;
-  border: 0.2rem solid red !important;
+  color: rgb(255, 66, 66) !important;
+  border: 0.2rem solid rgb(255, 66, 66) !important;
 }
 
 #submit {
+  width: 8rem;
   line-height: 0;
-  width: 100%;
   margin: 1rem 4rem;
-  padding: 3rem;
-  border: 0.2rem solid red;
-  color: red;
+  padding: 1rem;
+  color: #12005e;
+  align-content: center;
+  background-color: #4a148c;
   filter: none;
 }
 
@@ -191,11 +192,23 @@ button:disabled {
   transform: scale(0, 0);
 }
 
+@keyframes glow {
+  from { box-shadow: 0 0 4rem -1rem #A6FA14; }
+  to { box-shadow: 0 0 0 #A6FA14; }
+}
+
 .submit--button--completed {
+  width: 100% !important;
+  padding: 3rem !important;
   transition: 0.3s;
-  color: green !important;
-  border: 0.2rem solid green !important;
+  background-color: #A6FA14 !important;
   filter: drop-shadow(0 0.1rem 0.1rem rgba(0, 0, 0, 0.3)) !important;
+  animation-duration: 2s;
+  animation-name: glow;
+  animation-direction: alternate-reverse;
+  animation-delay: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
 
 .submit--button--completed:hover {
@@ -221,7 +234,7 @@ button:disabled {
 #scoresheetContainer.submitted {
   position: static;
   border-radius: 0.5rem;
-  border: 0.2rem solid black;
+  border: 0.2rem solid #A75AFF;
 }
 
 #scoresheet {
@@ -251,14 +264,17 @@ button:disabled {
   font-family: "Cutive Mono";
   margin: 0;
   transition-duration: 0.3s;
-  background-color: white;
+  background-color: #A75AFF;
+  color: #12005e;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   margin-top: -0.5rem;
-  filter: drop-shadow(0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0.1rem 0.1rem 0.1rem rgba(167, 90, 255, 0.2));
 }
 
 #timer.submitted {
   filter: none;
   position: static;
+  color: #A75AFF;
+  background-color: transparent;
 }
