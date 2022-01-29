@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;1,600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Ubuntu:wght@400;500&display=swap');
 
 html {
   box-sizing: border-box;
@@ -17,8 +17,8 @@ body {
   margin: 1rem;
   font-family: sans-serif;
   line-height: 1.5;
-  font-family: "Source Code Pro";
-  font-weight: normal;
+  font-family: "Ubuntu";
+  font-weight: 400;
   font-size: xx-large;
   color: black;
   opacity: 0.87;
@@ -59,6 +59,7 @@ video {
   margin-bottom: 0;
   border-radius: 0.3rem;
   border: 0.2rem solid black;
+  font-weight: 500;
   text-align: center;
 }
 
@@ -84,7 +85,8 @@ video {
 
 button {
   transition: 0.1s;
-  font-family: "Source Code Pro";
+  font-family: "Ubuntu";
+  font-weight: normal;
   background-color: white;
   border: 0.2rem solid black;
   border-radius: 1rem;
@@ -129,7 +131,7 @@ button:disabled {
 
 .question--button--selected {
   transition-duration: 0.3s;
-  font-weight: bold;
+  font-weight: 500;
   filter: none;
   box-shadow: inset 0 0.2rem 0.1rem rgba(0, 0, 0, 0.3);
   background-color: rgba(0, 0, 0, 0.1);
@@ -203,7 +205,7 @@ button:disabled {
   margin: 1rem 4rem;
   flex-wrap: wrap;
   flex-basis: 100%;
-  top: -0.5rem;
+  top: 0;
   z-index: 1;
   justify-content: center;
 }
@@ -218,6 +220,7 @@ button:disabled {
   display: none;
   flex-basis: 100%;
   padding: 0;
+  padding-top: 0.5rem;
   font-size: 1em;
   text-align: center;
 }
@@ -237,12 +240,14 @@ button:disabled {
 }
 
 #timer {
+  font-family: "Cutive Mono";
   margin: 0;
   transition-duration: 0.3s;
   background-color: white;
-  padding: 0.5rem 1rem 0.5rem 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  filter: drop-shadow(0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.3));
+  margin-top: -0.5rem;
+  filter: drop-shadow(0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2));
 }
 
 #timer.submitted {
