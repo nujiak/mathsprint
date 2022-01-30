@@ -10,9 +10,15 @@ html {
   box-sizing: inherit;
 }
 
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
 body {
   display: flex;
   flex-wrap: wrap;
+  min-height: 100vh;
   justify-content: center;
   margin: 1rem;
   font-family: sans-serif;
@@ -22,8 +28,11 @@ body {
   font-size: xx-large;
   color: #A75AFF;
   opacity: 0.87;
-  background: #12005e;
+  background: rgb(24,0,42);
+  background: linear-gradient(135deg, rgba(24,0,42,1) 0%, rgba(56,0,73,1) 61%, rgba(86,0,102,1) 100%);
   -webkit-tap-highlight-color: transparent;
+  background-size: 400%;
+  animation: 15s ease-in-out 1s infinite alternate none running gradient;
 }
 
 h1 {
