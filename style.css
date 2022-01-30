@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Ubuntu:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Ubuntu:wght@400;500&display=swap");
 
 html {
   box-sizing: border-box;
@@ -11,8 +11,12 @@ html {
 }
 
 @keyframes gradient {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 body {
@@ -25,10 +29,15 @@ body {
   font-family: "Ubuntu";
   font-weight: 400;
   font-size: xx-large;
-  color: #A75AFF;
+  color: #a75aff;
   opacity: 0.87;
-  background: rgb(24,0,42);
-  background: linear-gradient(135deg, rgba(24,0,42,1) 0%, rgba(49,0,55,1) 70%, rgba(65,0,63,1) 100%);
+  background: rgb(24, 0, 42);
+  background: linear-gradient(
+    135deg,
+    rgba(24, 0, 42, 1) 0%,
+    rgba(49, 0, 55, 1) 70%,
+    rgba(65, 0, 63, 1) 100%
+  );
   -webkit-tap-highlight-color: transparent;
   background-size: 300% 100vh;
   background-attachment: fixed;
@@ -75,7 +84,7 @@ video {
   margin-top: 0;
   margin-bottom: 0;
   border-radius: 0.8rem;
-  border: 0.2rem solid #A75AFF;
+  border: 0.2rem solid #a75aff;
   font-weight: 500;
   text-align: center;
 }
@@ -105,7 +114,7 @@ button {
   transition: 0.1s;
   font-family: "Ubuntu";
   font-weight: normal;
-  background-color: #A75AFF;
+  background-color: #a75aff;
   border: none;
   border-radius: 1rem;
   font-size: x-large;
@@ -152,7 +161,7 @@ button:disabled {
   font-weight: 500;
   filter: none;
   box-shadow: inset 0 0.2rem 0.1rem rgba(0, 0, 0, 0.3);
-  background-color: #A6FA14;
+  background-color: #a6fa14;
 }
 
 .question--button--selected:hover {
@@ -204,15 +213,20 @@ button:disabled {
 }
 
 @keyframes glow {
-  from { box-shadow: 0 0 3rem -0.5rem #A6FA14, inset 0 -0.3rem 0.2rem rgba(0, 0, 0, 0.4); }
-  to { box-shadow: 0 0 0 #A6FA14, inset 0 -0.3rem 0.2em rgba(0, 0, 0, 0.4); }
+  from {
+    box-shadow: 0 0 3rem -0.5rem #a6fa14,
+      inset 0 -0.3rem 0.2rem rgba(0, 0, 0, 0.4);
+  }
+  to {
+    box-shadow: 0 0 0 #a6fa14, inset 0 -0.3rem 0.2em rgba(0, 0, 0, 0.4);
+  }
 }
 
 .submit--button--completed {
   width: 100% !important;
   padding: 3rem !important;
   transition: 0.3s;
-  background-color: #A6FA14 !important;
+  background-color: #a6fa14 !important;
   filter: drop-shadow(0 0.1rem 0.1rem rgba(0, 0, 0, 0.3)) !important;
   animation-duration: 2s;
   animation-name: glow;
@@ -245,7 +259,7 @@ button:disabled {
 #scoresheetContainer.submitted {
   position: static;
   border-radius: 0.5rem;
-  border: 0.2rem solid #A75AFF;
+  border: 0.2rem solid #a75aff;
 }
 
 #scoresheet {
@@ -275,7 +289,7 @@ button:disabled {
   font-family: "Cutive Mono";
   margin: 0;
   transition-duration: 0.3s;
-  background-color: #A75AFF;
+  background-color: #a75aff;
   color: #12005e;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -287,6 +301,6 @@ button:disabled {
 #timer.submitted {
   filter: none;
   position: static;
-  color: #A75AFF;
+  color: #a75aff;
   background-color: transparent;
 }

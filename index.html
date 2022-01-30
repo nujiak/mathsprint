@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#18002a">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#18002a" />
 
-    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
-    <link rel="icon" type="image/x-icon" href="icons/favicon.png">
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials" />
+    <link rel="icon" type="image/x-icon" href="icons/favicon.png" />
 
     <title>MathSprint</title>
 
@@ -17,16 +17,22 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-
-      <div id="scoresheetContainer" class="hasSubmittedState">
-        <div id="scoresheet" class="hasSubmittedState">
-          <h3 id="score" class="score" style="display: inline-block;"></h3><h4 id="maxScore" class="score" style="display: inline-block;"></h4>
-        </div>
-        <h5 id="timer" class="hasSubmittedState"></h3>
+    <div id="scoresheetContainer" class="hasSubmittedState">
+      <div id="scoresheet" class="hasSubmittedState">
+        <h3 id="score" class="score" style="display: inline-block"></h3>
+        <h4 id="maxScore" class="score" style="display: inline-block"></h4>
       </div>
-
-      <div id="questions"></div>
-      <button id="submit" type="submit" class="hasSubmittedState" onclick="checkAnswers()">Submit</button>
+      <h5 id="timer" class="hasSubmittedState"></h5>
     </div>
+
+    <div id="questions"></div>
+    <button
+      id="submit"
+      type="submit"
+      class="hasSubmittedState"
+      onclick="checkAnswers()"
+    >
+      Submit
+    </button>
   </body>
 </html>

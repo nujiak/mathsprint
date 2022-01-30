@@ -2,13 +2,13 @@ const QUESTIONS_COUNT = 10;
 const OPTIONS_COUNT = 4;
 const operators = ["-", "+", "*"];
 const questionsContainer = document.getElementById("questions");
-const timerDisplay =   document.getElementById("timer")
+const timerDisplay = document.getElementById("timer");
 const questions = [];
 const selection = [];
 const results = [];
 var startTime;
 var timerIntervalId;
-var duration = 0
+var duration = 0;
 
 class Question {
   constructor(leftOperand, operator, rightOperand) {
@@ -55,13 +55,13 @@ function generateQuestion() {
 function attachQuestion(question, questionNumber) {
   const title = document.createElement("h2");
 
-  const questionContainer = document.createElement("div")
-  questionContainer.classList.add("question", "hasSubmittedState")
+  const questionContainer = document.createElement("div");
+  questionContainer.classList.add("question", "hasSubmittedState");
   questionsContainer.appendChild(questionContainer);
 
   title.appendChild(document.createTextNode(question.string));
   title.setAttribute("class", "question--title hasSubmittedState");
-  questionContainer.appendChild(title)
+  questionContainer.appendChild(title);
 
   const optionsDiv = document.createElement("div");
   optionsDiv.setAttribute("class", "question--options hasSubmittedState");
@@ -71,7 +71,10 @@ function attachQuestion(question, questionNumber) {
     const button = document.createElement("button");
     button.setAttribute("id", id);
     button.setAttribute("type", "button");
-    button.setAttribute("class", `question--button question--button--${i} hasSubmittedState`);
+    button.setAttribute(
+      "class",
+      `question--button question--button--${i} hasSubmittedState`
+    );
     button.appendChild(document.createTextNode(question.options[i]));
     button.addEventListener("click", () => {
       onSelection(questionNumber, i);
@@ -117,8 +120,8 @@ function checkAnswers() {
     return;
   }
 
-  clearInterval(timerIntervalId)
-  updateTimer()
+  clearInterval(timerIntervalId);
+  updateTimer();
 
   for (let i = 0; i < QUESTIONS_COUNT; i++) {
     const question = questions[i];
@@ -132,18 +135,18 @@ function checkAnswers() {
 function showScore() {
   for (let qn = 0; qn < QUESTIONS_COUNT; qn++) {
     for (let opt = 0; opt < OPTIONS_COUNT; opt++) {
-      const button = document.getElementById(getOptionId(qn, opt))
-      button.disabled = true
+      const button = document.getElementById(getOptionId(qn, opt));
+      button.disabled = true;
 
       // Check if this option is the correct answer
       if (questions[qn].options[opt] == questions[qn].answer) {
-        button.classList.add("question--button--correct")
-        continue
+        button.classList.add("question--button--correct");
+        continue;
       }
 
       // Check if this option was selected (would be wrong)
       if (selection[qn] == opt) {
-        button.classList.add("question--button--wrong")
+        button.classList.add("question--button--wrong");
       }
     }
   }
@@ -158,7 +161,7 @@ function showScore() {
   timerDisplay.style.position = "static";
 
   for (element of document.getElementsByClassName("hasSubmittedState")) {
-    element.classList.add("submitted")
+    element.classList.add("submitted");
   }
 
   scoreSheet.scrollIntoView({
@@ -173,27 +176,29 @@ function getOptionId(questionNumber, optionNumber) {
 }
 
 function updateTimer() {
-  const currentTime = Date.now()
-  duration = currentTime - startTime
+  const currentTime = Date.now();
+  duration = currentTime - startTime;
 
-  timerDisplay.innerText = formatTime(duration)
+  timerDisplay.innerText = formatTime(duration);
 }
 
 function formatTime(timeInMilliseconds) {
-  const time = splitTime(timeInMilliseconds)
-  return `${time.minutes.toString().padStart(2, "0")}:${time.seconds.toString().padStart(2, "0")}.${time.milliseconds.toString().padEnd(3,"0")}`
+  const time = splitTime(timeInMilliseconds);
+  return `${time.minutes.toString().padStart(2, "0")}:${time.seconds
+    .toString()
+    .padStart(2, "0")}.${time.milliseconds.toString().padEnd(3, "0")}`;
 }
 
 function splitTime(timeInMilliseconds) {
-  const minutes = Math.floor(timeInMilliseconds / (60_000))
-  const seconds = Math.floor((timeInMilliseconds % 60_000) / (1_000))
-  const milliseconds = timeInMilliseconds % 1_000
+  const minutes = Math.floor(timeInMilliseconds / 60_000);
+  const seconds = Math.floor((timeInMilliseconds % 60_000) / 1_000);
+  const milliseconds = timeInMilliseconds % 1_000;
 
   return {
     minutes: minutes,
     seconds: seconds,
     milliseconds: milliseconds,
-  }
+  };
 }
 
 function init() {
@@ -203,8 +208,8 @@ function init() {
     attachQuestion(newQuestion, i);
   }
 
-  startTime = Date.now()
-  timerIntervalId = setInterval(updateTimer, 1000/60);
+  startTime = Date.now();
+  timerIntervalId = setInterval(updateTimer, 1000 / 60);
 }
 
-init()
+init();
