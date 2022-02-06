@@ -20,28 +20,25 @@ html {
 }
 
 body {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 1rem;
-  font-family: sans-serif;
-  line-height: 1.5;
   font-family: "Ubuntu";
   font-weight: 400;
   font-size: xx-large;
-  color: #a75aff;
-  opacity: 0.87;
-  background: rgb(24, 0, 42);
-  background: linear-gradient(
-    135deg,
-    rgba(24, 0, 42, 1) 0%,
-    rgba(49, 0, 55, 1) 70%,
-    rgba(65, 0, 63, 1) 100%
-  );
-  -webkit-tap-highlight-color: transparent;
+  margin: 0;
   background-size: 300% 100vh;
   background-attachment: fixed;
-  animation: 15s ease-in-out 1s infinite alternate none running gradient;
+  color: #a75aff;
+  opacity: 0.87;
+  -webkit-tap-highlight-color: transparent;
+  background: rgb(49, 0, 55);
+}
+
+#game {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: sans-serif;
+  line-height: 1.5;
+  background-color: transparent;
 }
 
 h1 {
@@ -51,6 +48,84 @@ h1 {
   letter-spacing: 0.5rem;
   font-style: italic;
   text-align: center;
+  z-index: 3;
+}
+
+#background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: rgb(24, 0, 42);
+  background: linear-gradient(
+    135deg,
+    rgb(24, 0, 42) 0%,
+    rgb(49, 0, 55) 70%,
+    rgb(65, 0, 63) 100%
+  );
+  background-size: 300vw 100vh;
+  animation: 15s ease-in-out 0s infinite alternate none running gradient;
+  opacity: 1;
+}
+
+#cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgb(24, 0, 42);
+  background-color: linear-gradient(
+    135deg,
+    rgba(24, 0, 42, 1) 0%,
+    rgba(49, 0, 55, 1) 70%,
+    rgba(65, 0, 63, 1) 100%
+  );
+  z-index: 3;
+}
+
+#cover.hidden {
+  transition-duration: 200ms;
+  transition-timing-function: ease-in;
+  transform: translate(0, -100%);
+}
+
+#title {
+  flex: 0 0 0;
+  height: fit-content;
+  width: fit-content;
+  margin: 0;
+}
+
+#titleM {
+  font-family: 'Cutive Mono', sans-serif;
+  font-style: normal;
+  letter-spacing: -0.3rem;
+}
+
+#titleAth {
+  font-family: 'Cutive Mono', sans-serif;
+  letter-spacing: -0.6rem;
+  font-style: normal;
+}
+
+#titleSprint {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: smaller;
+  font-weight: 400;
+  letter-spacing: -0.2rem;
+  color: #a14dda;
+}
+
+#start {
+  width: fit-content;
 }
 
 img,

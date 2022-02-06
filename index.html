@@ -17,22 +17,31 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div id="scoresheetContainer" class="hasSubmittedState">
-      <div id="scoresheet" class="hasSubmittedState">
-        <h3 id="score" class="score" style="display: inline-block"></h3>
-        <h4 id="maxScore" class="score" style="display: inline-block"></h4>
-      </div>
-      <h5 id="timer" class="hasSubmittedState"></h5>
+    <div id="cover">
+      <h1 id="title"><span id="titleM">M</span><span id="titleAth">ath</span><span id="titleSprint">Sprint</span></h1>
+      <button id="start" type="submit">Start</button>
     </div>
 
-    <div id="questions"></div>
-    <button
-      id="submit"
-      type="submit"
-      class="hasSubmittedState"
-      onclick="checkAnswers()"
-    >
-      Submit
-    </button>
+    <div id="game">
+      <div id="scoresheetContainer" class="hasSubmittedState">
+        <div id="scoresheet" class="hasSubmittedState">
+          <h3 id="score" class="score" style="display: inline-block"></h3>
+          <h4 id="maxScore" class="score" style="display: inline-block"></h4>
+        </div>
+        <h5 id="timer" class="hasSubmittedState"></h5>
+      </div>
+
+      <div id="questions"></div>
+      <button
+        id="submit"
+        type="submit"
+        class="hasSubmittedState"
+        onclick="checkAnswers()"
+      >
+        Submit
+      </button>
+    </div>
+
+    <div id="background"></div>
   </body>
 </html>

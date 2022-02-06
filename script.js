@@ -201,15 +201,23 @@ function splitTime(timeInMilliseconds) {
   };
 }
 
-function init() {
+function startGame() {
   for (let i = 0; i < QUESTIONS_COUNT; i++) {
     const newQuestion = generateQuestion();
     questions.push(newQuestion);
     attachQuestion(newQuestion, i);
   }
 
+  document.getElementById("cover").classList.add("hidden");
+
   startTime = Date.now();
   timerIntervalId = setInterval(updateTimer, 1000 / 60);
 }
 
+function init() {
+  document.getElementById("start").addEventListener("click", startGame)
+}
+
 init();
+
+
