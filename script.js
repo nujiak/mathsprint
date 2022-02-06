@@ -1,8 +1,8 @@
 const QUESTIONS_COUNT = 10;
 const OPTIONS_COUNT = 4;
 const operators = ["-", "+", "*"];
-const questionsContainer = document.getElementById("questions");
-const timerDisplay = document.getElementById("timer");
+const questionsContainer = $("#questions");
+const timerDisplay = $("#timer");
 const questions = [];
 const selection = [];
 const results = [];
@@ -57,7 +57,7 @@ function attachQuestion(question, questionNumber) {
 
   const questionContainer = document.createElement("div");
   questionContainer.classList.add("question", "hasSubmittedState");
-  questionsContainer.appendChild(questionContainer);
+  questionsContainer.append(questionContainer);
 
   title.appendChild(document.createTextNode(question.string));
   title.setAttribute("class", "question--title hasSubmittedState");
@@ -88,10 +88,10 @@ function onSelection(questionNumber, optionNumber) {
   selection[questionNumber] = optionNumber;
   for (let i = 0; i < OPTIONS_COUNT; i++) {
     const id = getOptionId(questionNumber, i);
-    const button = document.getElementById(id);
+    const button = $(`#${id}`);
     i == optionNumber
-      ? button.classList.add("question--button--selected")
-      : button.classList.remove("question--button--selected");
+      ? button.addClass("question--button--selected")
+      : button.removeClass("question--button--selected");
   }
 
   verifyCompletion();
@@ -106,9 +106,7 @@ function verifyCompletion() {
     }
   }
   if (isCompleted) {
-    document
-      .getElementById("submit")
-      .classList.add("submit--button--completed");
+    $("#submit").addClass("submit--button--completed");
   }
 
   return isCompleted;
@@ -135,36 +133,36 @@ function checkAnswers() {
 function showScore() {
   for (let qn = 0; qn < QUESTIONS_COUNT; qn++) {
     for (let opt = 0; opt < OPTIONS_COUNT; opt++) {
-      const button = document.getElementById(getOptionId(qn, opt));
-      button.disabled = true;
+      const button = $(`#${getOptionId(qn, opt)}`);
+      button.prop('disabled', true);
 
       // Check if this option is the correct answer
       if (questions[qn].options[opt] == questions[qn].answer) {
-        button.classList.add("question--button--correct");
+        button.addClass("question--button--correct");
         continue;
       }
 
       // Check if this option was selected (would be wrong)
       if (selection[qn] == opt) {
-        button.classList.add("question--button--wrong");
+        button.addClass("question--button--wrong");
       }
     }
   }
 
   score = results.reduce((sum, isCorrect) => (isCorrect ? sum + 1 : sum), 0);
-  const scoreDisplay = document.getElementById("score");
-  const maxScoreDisplay = document.getElementById("maxScore");
-  const scoreSheet = document.getElementById("scoresheet");
+  const scoreDisplay = $("#score");
+  const maxScoreDisplay = $("#maxScore");
+  const scoreSheet = $("#scoresheet");
 
-  scoreDisplay.innerText = score;
-  maxScoreDisplay.innerText = `/${QUESTIONS_COUNT}`;
-  timerDisplay.style.position = "static";
+  scoreDisplay.text(score);
+  maxScoreDisplay.text(`/${QUESTIONS_COUNT}`);
+  timerDisplay.css({ "position": "static"});
 
-  for (element of document.getElementsByClassName("hasSubmittedState")) {
-    element.classList.add("submitted");
-  }
+  $(".hasSubmittedState").each((i, element) => {
+    $(element).addClass("submitted");
+  })
 
-  scoreSheet.scrollIntoView({
+  scoreSheet[0].scrollIntoView({
     behavior: "smooth",
     block: "start",
     inline: "nearest",
@@ -179,7 +177,7 @@ function updateTimer() {
   const currentTime = Date.now();
   duration = currentTime - startTime;
 
-  timerDisplay.innerText = formatTime(duration);
+  timerDisplay.text(formatTime(duration));
 }
 
 function formatTime(timeInMilliseconds) {
@@ -208,16 +206,16 @@ function startGame() {
     attachQuestion(newQuestion, i);
   }
 
-  document.getElementById("cover").classList.add("hidden");
+  $("#cover").addClass("hidden");
 
   startTime = Date.now();
   timerIntervalId = setInterval(updateTimer, 1000 / 60);
 }
 
 function init() {
-  document.getElementById("start").addEventListener("click", startGame)
+  $("#start").click(startGame)
 }
 
-init();
+$(document).ready(init);
 
 
