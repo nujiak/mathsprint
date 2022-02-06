@@ -33,12 +33,25 @@ body {
 }
 
 #game {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  font-family: sans-serif;
+  font-family: "Ubuntu", sans-serif;
   line-height: 1.5;
   background-color: transparent;
+  overflow-y: auto;
+  align-content: flex-start;
+}
+
+#game::-webkit-scrollbar {
+  width: 1rem;
+}
+
+#game::-webkit-scrollbar-thumb {
+  background-color: #a75aff;
+  border-radius: 0.5rem 0 0 0.5rem;
 }
 
 h1 {
@@ -138,6 +151,7 @@ video {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-content: flex-start;
   flex-shrink: 1;
 }
 
@@ -150,6 +164,7 @@ video {
   filter: drop-shadow(0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.3));
   background-color: #4a148c;
   margin: 1rem 0.5rem 0 0.5rem;
+  height: fit-content;
 }
 
 .question--title {
@@ -324,8 +339,10 @@ button:disabled {
   position: sticky;
   display: flex;
   margin: 1rem 4rem;
-  flex-wrap: wrap;
+  height: fit-content;
   flex-basis: 100%;
+  flex-direction: column;
+  align-items: center;
   top: 0;
   z-index: 1;
   justify-content: center;
@@ -361,6 +378,7 @@ button:disabled {
 }
 
 #timer {
+  width: fit-content;
   font-family: "Cutive Mono";
   margin: 0;
   transition-duration: 0.3s;
