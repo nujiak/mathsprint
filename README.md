@@ -1,4 +1,9 @@
-# MathSprint
+<h1 align="center">
+
+[Math*Sprint*](https://nujiak.github.io/mathsprint)
+
+![GitHub deployments](https://img.shields.io/github/deployments/nujiak/mathsprint/github-pages?label=deployment)
+</h1>
 
 ![Splash screen](docs/img/screenshot_cover.png)
 
